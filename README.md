@@ -134,29 +134,4 @@ Default server port: **5051**
 ./mvnw test
 ```
 
----
-
-## Skills Demonstrated (Recruiter Snapshot)
-
-- RESTful API design for multi-domain business workflows
-- Stateless auth and request-level user resolution with JWT
-- Spring Security configuration for protected routes
-- Clean separation of concerns in a layered architecture
-- External service integration (AI + SMTP)
-- Secure secret handling through environment-based configuration
-
----
-
-## Future Improvements
-
-- Password hashing (BCrypt) and stronger auth hardening
-- Role-based authorization policies
-- OpenAPI/Swagger documentation
-- Dockerized local environment and CI pipeline hardening
-- Better observability (structured logging + metrics)
-
----
-
-## License
-
 No license file is currently included in this repository.
