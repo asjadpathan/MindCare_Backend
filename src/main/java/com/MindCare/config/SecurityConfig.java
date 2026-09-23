@@ -1,6 +1,7 @@
 package com.MindCare.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,7 +22,8 @@ import java.util.List;
 @Configuration
 public class SecurityConfig {
 
-    private static final String SECRET_KEY = "xYz@9234!longRandomSecret$tokenKey123456";
+    @Value("${security.jwt.secret}")
+    private String secretKey;
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
@@ -46,7 +48,7 @@ public class SecurityConfig {
 
     @Bean
     public JwtDecoder jwtDecoder() {
-        byte[] keyBytes = SECRET_KEY.getBytes();
+        byte[] keyBytes = secretKey.getBytes();
         SecretKey secretKey = new SecretKeySpec(keyBytes, 0, keyBytes.length, "HmacSHA256");
         return NimbusJwtDecoder.withSecretKey(secretKey).build();
     }
